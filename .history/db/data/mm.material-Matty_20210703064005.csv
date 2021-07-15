@@ -1,0 +1,55 @@
+mtart;mtbez
+DIEN;호환 단위
+CH00;CH 계약 처리
+CONT;칸반 컨테이너
+COUP;쿠폰
+DIEN;서비스/용역
+EPA;설비 패키지
+ERSA;Spare Part
+FERT;완제품
+FFFC;Form-Fit-Function 클래스
+FGTR;음료
+FHMI;생산 자원/툴
+FOOD;식품(부패성 상품 제외)
+FRIP;부패성 상품
+GBRA;ETM 사용가능 자재
+HALB;반제품
+HAWA;교역품
+HERB;교환 가능 부품
+HERS;제조자 부품
+HIBE;소모저장품
+IBAU;유지보수 조립품
+INTR;인트라 자재
+KMAT;구성형 자재
+LEER;용기
+LEIH;반환용 포장재
+LGUT;용기(소매)
+MAT;자재 일반
+MODE;의류(계절성)
+MPO;자재 계획 오브젝트
+NLAG;비재고 자재
+NOF1;비식품
+PIPE;파이프라인 자재
+PLAN;교역품(계획)
+PROC;프로세스 자재
+PROD;제품 그룹
+ROH;원자재
+SERV;서비스
+SUBC;등록 공유 제품
+SUBP;구독 파트너 제품
+SUBS;구독 제품
+UNBW;비평가자재
+VBRA;ETM 소비 자재
+VEHI;차량 구성
+VERP;포장재
+VKHM;추가사항
+VOLL;전체제품
+VVGR;경쟁사 제품
+WERB;제품 카탈로그
+WERT;금액 기준 관리 자재
+WETT;경쟁사 제품
+YROH;폐액
+ZFER;시제품
+ZNLG;품질검사
+ZROH;재생원료
+ZTNK;저장조

@@ -1,0 +1,5 @@
+# 일반자재 조회
+/material.AgingSrv/Maras
+
+# 
+/material.AgingSrv/Maras?$expand=makts

@@ -1,0 +1,16 @@
+---
+spring:
+    config.activate.on-profile: def
+cds:
+    # odata-v2.endpoint.path: "/api“
+    odata-v4.endpoint.path: "/api"
+
+---
+spring:
+  config.activate.on-profile: memory
+  datasource:
+    url: "jdbc:sqlite:file::memory:?cache=shared"
+    driver-class-name: org.sqlite.JDBC
+    initialization-mode: always
+    hikari:
+      maximum-pool-size: 1

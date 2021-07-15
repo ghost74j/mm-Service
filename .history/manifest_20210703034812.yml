@@ -1,0 +1,7 @@
+---
+applications:
+- name: tshop-Service
+  path: srv/target/tshop-service-exec.jar
+  random-route: true
+  services:
+  - tshop-hana-db

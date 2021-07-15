@@ -1,0 +1,7 @@
+---
+applications:
+- name: mm-Service
+  path: srv/target/mm-service-exec.jar
+  random-route: true
+  services:
+  - mm-hana-db

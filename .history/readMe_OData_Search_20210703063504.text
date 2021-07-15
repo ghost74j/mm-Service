@@ -1,0 +1,7 @@
+ 자재유형 목록
+
+# 일반자재 조회
+/material.AgingSrv/Maras
+
+# 일반자재 조회 - 자재내역 확장
+/material.AgingSrv/Maras?$expand=makts
