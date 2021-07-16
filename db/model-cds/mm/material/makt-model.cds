@@ -14,8 +14,8 @@ using { mm.material.Mara as mara}   from './mara-model';
 
 entity Makt {
     key matnr       : String(40);
+    key spras       : String(1);
 
-        spras       : String(1);
         maktx       : String(40);
 
         matnr_fk    : Association to mara on matnr_fk.matnr = matnr;
@@ -25,7 +25,7 @@ annotate Makt with @title : '자재내역'  @description : '자재내역';
 
 annotate Makt with {
     matnr @title : '자재번호'       @description : '자재번호';
-    
     spras @title : '언어키'         @description : '언어키';
+    
     maktx @title : '자재내역'       @description : '자재내역';
 };

@@ -2,7 +2,6 @@
 **/edmx/
 *.db
 schema.sql
-default-env.json
 
 **/bin/
 **/target/
@@ -25,3 +24,18 @@ hs_err*
 
 .vscode
 .idea
+
+**/prog
+#**/jar
+
+# added by cds deploy
+#default-env.json
+
+.history/*
+mta_archives/
+srv/target/
+srv/src/gen/
+srv/src/main/resources/edmx/
+db/src/gen/
+db/node_modules/
+node_modules/
