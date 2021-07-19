@@ -58,32 +58,46 @@ service AgingService {
 
     /**
      *  설명 : 저장위치별 재고 Aging 상태 조회
-     *  주소 : /odata/v4/material.AgingSrv/Agings('2019-01-15')/Set
+     *  주소 : /odata/v4/material.AgingSrv/Agings('2019-02-28')/Set
      */
+    @cds.query.limit: { max: 0 }
     entity Agings(i_date: String(10))   as
         select from 
             mara as mara
+            inner join marc as marc                             on mara.matnr = marc.matnr
+            inner join mard as mard                             on marc.matnr = mard.matnr and marc.werks = mard.werks
             left outer join makt as makt                        on mara.matnr = makt.matnr and makt.spras = '3'
-            left outer join marc as marc                        on mara.matnr = marc.matnr
-            left outer join mard as mard                        on marc.matnr = mard.matnr and marc.werks = mard.werks
             left outer join stloc as stloc                      on mard.werks = stloc.werks and mard.lgort = stloc.lgort
             left outer join mardExVw(p_date: :i_date) as mardEx on mard.matnr = mardEx.matnr and mard.werks = mardEx.werks and mard.lgort = mardEx.lgort
         {
             key mara.matnr,
             key marc.werks,
             key mard.lgort,
+
                 makt.maktx,
                 mara.mtart,
                 mara.matkl,
                 stloc.lgobe,
                 mara.meins,
 
+                ifnull(mard.labst,0) + ifnull(mard.umlme,0) + ifnull(mard.speme,0) - mardEx.before_month_0_menge as before_month_0_menge : Decimal,
+                mardEx.gr_date,
+                mardEx.gi_date,
                 mardEx.before_month_1_menge, 
                 mardEx.before_month_2_menge,
                 mardEx.before_month_3_menge,
                 mardEx.before_month_6_menge, 
                 mardEx.before_month_9_menge, 
                 mardEx.before_month_12_menge,
+                ifnull(mard.labst,0) + ifnull(mard.umlme,0) + ifnull(mard.speme,0) - mardEx.before_month_0_menge 
+                    - mardEx.before_month_1_menge - mardEx.before_month_2_menge - mardEx.before_month_3_menge
+                    - mardEx.before_month_6_menge - mardEx.before_month_9_menge - mardEx.before_month_12_menge as before_month_13_menge : Decimal
         }
     ;
+
+    annotate Agings with @title : '자재의 저장위치별 재고 Aging 상태 조회' @description : '자재의 저장위치별 재고 Aging 상태 조회';
+    annotate Agings with {
+        before_month_0_menge        @title : '현재 재고'        @description : 'LABST(평가된 가용 재고) + UMLME(이전중 재고) + SPEME(보류 재고) - (현재일부터 기준일까지 수량)';
+        before_month_12_menge       @title : '1년전 입출고 수량' @description : '1년전 입출고 수량';
+    };
 }

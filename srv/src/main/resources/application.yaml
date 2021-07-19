@@ -2,7 +2,10 @@
 spring:
     config.activate.on-profile: default
 cds:
-    odata-v4.endpoint.path: "/api"
+    # odata-v4.endpoint.path: "/api"
+    odataV4.endpoint.path: "/api"
+    query.limit.default: 50
+    query.limit.max: 50
 
 ---
 spring:

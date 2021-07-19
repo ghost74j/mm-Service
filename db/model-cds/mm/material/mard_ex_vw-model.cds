@@ -18,6 +18,9 @@ entity Mard_Ex_Vw (p_date: String) {
     key werks                   : String(4);
     key lgort                   : String(4);
 
+        gr_date                 : Date;
+        gi_date                 : Date;
+        before_month_0_menge    : Decimal;
         before_month_1_menge    : Decimal;
         before_month_2_menge    : Decimal;
         before_month_3_menge    : Decimal;
@@ -33,10 +36,13 @@ annotate Mard_Ex_Vw with {
     werks @title : '플랜트'         @description : '플랜트';
     lgort @title : '저장위치'       @description : '저장위치';
 
-    // labst @title : '가용재고'       @description : '평가된 가용 재고';
-    // umlme @title : '이전중재고'     @description : '이전중 재고(저장 위치 -> 저장 위치)';
-    // insme @title : '품질검사재고'   @description : '품질 검사 중 재고';
-    // einme @title : '총재고'         @description : '모든 제한 배치의 총 재고';
-    // speme @title : '보류재고'       @description : '보류재고';
-    // retme @title : '보류재고반품'   @description : '보류재고반품';
+    gr_date                     @title : '마지막 입고일자'                  @description : '마지막 입고일자';
+    gi_date                     @title : '마지막 출고일자'                  @description : '마지막 출고일자';
+    before_month_0_menge        @title : '현재일부터 기준일까지 입출고 수량'  @description : '현재일부터 기준일까지 입출고 수량';
+    before_month_1_menge        @title : '0-1 month 입출고 수량'            @description : '0-1 month 입출고 수량';
+    before_month_2_menge        @title : '1-2 month 입출고 수량'            @description : '1-2 month 입출고 수량';
+    before_month_3_menge        @title : '2-3 month 입출고 수량'            @description : '2-3 month 입출고 수량';
+    before_month_6_menge        @title : '4-6 month 입출고 수량'            @description : '4-6 month 입출고 수량';
+    before_month_9_menge        @title : '6-9 month 입출고 수량'            @description : '6-9 month 입출고 수량';
+    before_month_12_menge       @title : '9-12 month 입출고 수량'           @description : '9-12 month 입출고 수량';
 };
