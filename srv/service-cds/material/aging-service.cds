@@ -58,17 +58,18 @@ service AgingService {
 
     /**
      *  설명 : 저장위치별 재고 Aging 상태 조회
+     *  주소 : /api/material.AgingSrv/Agings('2019-02-28')/Set
      *  주소 : /odata/v4/material.AgingSrv/Agings('2019-02-28')/Set
      */
     @cds.query.limit: { max: 0 }
     entity Agings(i_date: String(10))   as
         select from 
             mara as mara
-            inner join marc as marc                             on mara.matnr = marc.matnr
-            inner join mard as mard                             on marc.matnr = mard.matnr and marc.werks = mard.werks
-            left outer join makt as makt                        on mara.matnr = makt.matnr and makt.spras = '3'
-            left outer join stloc as stloc                      on mard.werks = stloc.werks and mard.lgort = stloc.lgort
-            left outer join mardExVw(p_date: :i_date) as mardEx on mard.matnr = mardEx.matnr and mard.werks = mardEx.werks and mard.lgort = mardEx.lgort
+            inner join marc as marc                        on mara.matnr = marc.matnr
+            inner join mard as mard                        on marc.matnr = mard.matnr and marc.werks = mard.werks
+            left outer join makt as makt                   on mara.matnr = makt.matnr and makt.spras = '3'
+            left outer join stloc as stloc                 on mard.werks = stloc.werks and mard.lgort = stloc.lgort
+            inner join mardExVw(p_date: :i_date) as mardEx on mard.matnr = mardEx.matnr and mard.werks = mardEx.werks and mard.lgort = mardEx.lgort
         {
             key mara.matnr,
             key marc.werks,
