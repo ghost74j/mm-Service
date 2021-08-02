@@ -30,14 +30,14 @@ modules:
      build-result: "target/*-exec.[wj]ar"
    requires:
     # Resources extracted from CAP configuration
-    - name: mm-service-db
+    - name: mm-hana-db
    provides:
     - name: srv-api      # required by consumers of CAP services (e.g. approuter)
       properties:
         srv-url: ${default-url}
 
  # -------------------- SIDECAR MODULE ------------------------
- - name: mm-service-db-deployer
+ - name: mm-hana-db-deployer
  # ------------------------------------------------------------
    type: hdb
    path: db  
@@ -45,14 +45,14 @@ modules:
      buildpack: nodejs_buildpack
    requires:
     # 'hana' and 'xsuaa' resources extracted from CAP configuration
-    - name: mm-service-db
+    - name: mm-hana-db
 
 
 resources:
  # services extracted from CAP configuration
  # 'service-plan' can be configured via 'cds.requires.<name>.vcap.plan'
 # ------------------------------------------------------------
- - name: mm-service-db
+ - name: mm-hana-db
 # ------------------------------------------------------------
    type: com.sap.xs.hdi-container
    parameters:

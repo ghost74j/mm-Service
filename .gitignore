@@ -39,3 +39,5 @@ srv/src/main/resources/edmx/
 db/src/gen/
 db/node_modules/
 node_modules/
+# auto generated wildcard
+db/.env
